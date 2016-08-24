@@ -26443,7 +26443,7 @@
 		return React.createElement(
 			'h2',
 			null,
-			'Example'
+			'Example!'
 		);
 	};
 
