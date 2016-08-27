@@ -8,7 +8,10 @@ var Weather = require('Weather');
 var About = require('About');
 var Example = require('Example');
 
+//Load foundation
 
+require('style!css!foundation-sites/dist/foundation.min.css')
+$(document).foundation();
 
 ReactDOM.render(
 	// <h1>Boilerplate app!</h1>,
