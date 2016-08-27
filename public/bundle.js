@@ -26578,11 +26578,14 @@
 					)
 				),
 				React.createElement(
-					Link,
-					{ to: '/?location=tokyo' },
-					'Tokyo, JP'
-				),
-				React.createElement('li', null)
+					'li',
+					null,
+					React.createElement(
+						Link,
+						{ to: '/?location=tokyo' },
+						'Tokyo, JP'
+					)
+				)
 			),
 			React.createElement(
 				'p',
