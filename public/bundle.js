@@ -26502,6 +26502,11 @@
 
 	var React = __webpack_require__(8);
 
+	var _require = __webpack_require__(166);
+
+	var Link = _require.Link;
+
+
 	var About = React.createClass({
 		displayName: 'About',
 
