@@ -107,7 +107,7 @@
 
 	var Main = __webpack_require__(223);
 	var Weather = __webpack_require__(225);
-	var About = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"About\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var About = __webpack_require__(251);
 	var Example = __webpack_require__(252);
 
 	//Load foundation
@@ -26495,7 +26495,70 @@
 
 
 /***/ },
-/* 251 */,
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(8);
+
+	var About = React.createClass({
+		displayName: 'About',
+
+
+		render: function render() {
+			return React.createElement(
+				'div',
+				null,
+				React.createElement(
+					'h2',
+					null,
+					'About'
+				),
+				React.createElement(
+					'p',
+					null,
+					'Welcome to React Weather!'
+				),
+				React.createElement(
+					'ul',
+					{ className: 'text-center' },
+					React.createElement(
+						'li',
+						null,
+						React.createElement(
+							'p',
+							null,
+							'The application utilizes data from OpenWeatherMap.org'
+						),
+						React.createElement(
+							Link,
+							{ to: 'http://openweathermap.org/' },
+							'Open Weather MapAPI'
+						)
+					),
+					React.createElement(
+						'li',
+						null,
+						React.createElement(
+							'p',
+							null,
+							'You can also view all the code in my GitHub repo'
+						),
+						React.createElement(
+							Link,
+							{ to: 'https://github.com/yueyangz/ReactWeather' },
+							'GitHub'
+						)
+					)
+				)
+			);
+		}
+	});
+
+	module.exports = About;
+
+/***/ },
 /* 252 */
 /***/ function(module, exports, __webpack_require__) {
 

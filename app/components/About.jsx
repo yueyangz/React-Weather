@@ -7,7 +7,7 @@ var About = React.createClass({
 		<div>
 			<h2>About</h2>
 			<p>Welcome to React Weather!</p>
-			<ul>
+			<ul className='text-center'>
 				<li>
 					<p>The application utilizes data from OpenWeatherMap.org</p>
 					<Link to='http://openweathermap.org/'>Open Weather MapAPI</Link> 
@@ -17,14 +17,9 @@ var About = React.createClass({
 					<Link to='https://github.com/yueyangz/ReactWeather'>GitHub</Link> 	
 				</li>		
 			</ul>
-		</div>		)
+		</div>)
 	}
 });
 
-var About = (props) => {
-	return (
-
-	)
-}
 
 module.exports = About;
