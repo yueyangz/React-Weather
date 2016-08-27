@@ -24906,6 +24906,7 @@
 
 		handleSubmit: function handleSubmit(e) {
 			e.preventDefault();
+			debugger;
 			alert('Not wired yet!');
 		},
 
@@ -24957,17 +24958,21 @@
 					'div',
 					{ className: 'top-bar-right' },
 					React.createElement(
-						'ul',
-						{ className: 'menu' },
+						'form',
+						{ onSubmit: this.handleSubmit },
 						React.createElement(
-							'li',
-							null,
-							React.createElement('input', { type: 'search', placeholder: 'Search' })
-						),
-						React.createElement(
-							'li',
-							null,
-							React.createElement('input', { className: 'button', onSubmit: this.handleSubmit, type: 'submit', value: 'Get Weather' })
+							'ul',
+							{ className: 'menu' },
+							React.createElement(
+								'li',
+								null,
+								React.createElement('input', { type: 'search', placeholder: 'Search' })
+							),
+							React.createElement(
+								'li',
+								null,
+								React.createElement('input', { type: 'submit', className: 'button', value: 'Get Weather' })
+							)
 						)
 					)
 				)
@@ -26502,11 +26507,6 @@
 
 	var React = __webpack_require__(8);
 
-	var _require = __webpack_require__(166);
-
-	var Link = _require.Link;
-
-
 	var About = React.createClass({
 		displayName: 'About',
 
@@ -26517,42 +26517,29 @@
 				null,
 				React.createElement(
 					'h2',
-					null,
+					{ className: 'text-center' },
 					'About'
 				),
 				React.createElement(
-					'p',
-					null,
-					'Welcome to React Weather!'
-				),
-				React.createElement(
 					'ul',
-					{ className: 'text-center' },
+					{ className: 'row' },
 					React.createElement(
 						'li',
 						null,
+						'The application utilizes data from OpenWeatherMap.org ',
 						React.createElement(
-							'p',
-							null,
-							'The application utilizes data from OpenWeatherMap.org'
-						),
-						React.createElement(
-							Link,
-							{ to: 'http://openweathermap.org/' },
+							'a',
+							{ className: 'text-center', href: 'http://openweathermap.org/' },
 							'Open Weather MapAPI'
 						)
 					),
 					React.createElement(
 						'li',
 						null,
+						'You can also view all the code in my GitHub repo ',
 						React.createElement(
-							'p',
-							null,
-							'You can also view all the code in my GitHub repo'
-						),
-						React.createElement(
-							Link,
-							{ to: 'https://github.com/yueyangz/ReactWeather' },
+							'a',
+							{ className: 'text-center', href: 'https://github.com/yueyangz/ReactWeather' },
 							'GitHub'
 						)
 					)

@@ -5,6 +5,7 @@ var Nav = React.createClass({
 
 	handleSubmit: function(e){
 		e.preventDefault();
+		debugger
 		alert('Not wired yet!');
 	},
 
@@ -27,14 +28,16 @@ var Nav = React.createClass({
 				</div>
 
 				<div className='top-bar-right'>
-					<ul className='menu'>
-						<li>
-							<input type='search' placeholder='Search'/>
-						</li>
-						<li>
-							<input className='button' onSubmit={this.handleSubmit} type='submit' value='Get Weather'/>
-						</li>
-					</ul>
+					<form onSubmit={this.handleSubmit}>
+						<ul className='menu'>
+								<li>
+									<input type='search' placeholder='Search'/>
+								</li>
+								<li>
+									<input type='submit' className='button' value='Get Weather'/>
+								</li>
+						</ul>
+					</form>	
 				</div>
 			</div>
 	);
