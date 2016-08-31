@@ -24908,8 +24908,12 @@
 
 		handleSubmit: function handleSubmit(e) {
 			e.preventDefault();
-			debugger;
-			alert('Not wired yet!');
+			var location = this.refs.search.value;
+			var encodedLocation = encodeURIComponent(location);
+			if (location && location.length > 0) {
+				this.refs.search.value = '';
+				window.location.hash = '#/?location=' + encodedLocation;
+			}
 		},
 
 		render: function render() {
@@ -24968,7 +24972,7 @@
 							React.createElement(
 								'li',
 								null,
-								React.createElement('input', { type: 'search', placeholder: 'Search weather by city' })
+								React.createElement('input', { type: 'search', ref: 'search', placeholder: 'Search weather by city' })
 							),
 							React.createElement(
 								'li',
@@ -25010,7 +25014,9 @@
 			var that = this;
 			this.setState({
 				isLoading: true,
-				errorMessage: undefined
+				errorMessage: undefined,
+				location: undefined,
+				temp: undefined
 			});
 
 			OpenWeatherMap.getTemp(location).then(function (temp) {
@@ -25026,6 +25032,23 @@
 				});
 				// alert(error);
 			});
+		},
+
+		componentDidMount: function componentDidMount() {
+			var location = this.props.location.query.location;
+			if (location && location.length > 0) {
+				this.handleNewData(location);
+				window.location.hash = "#/";
+			}
+		},
+
+		//React doesn't know 
+		componentWillReceiveProps: function componentWillReceiveProps(newProps) {
+			var location = newProps.location.query.location;
+			if (location && location.length > 0) {
+				this.handleNewData(location);
+				window.location.hash = "#/";
+			}
 		},
 
 		renderError: function renderError() {
@@ -25075,12 +25098,12 @@
 /* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var React = __webpack_require__(8);
 
 	var WeatherMessage = React.createClass({
-		displayName: "WeatherMessage",
+		displayName: 'WeatherMessage',
 
 		getDefaultProps: function getDefaultProps() {
 			return {
@@ -25094,12 +25117,16 @@
 			var location = _props.location;
 
 			return React.createElement(
-				"div",
+				'div',
 				null,
-				"It is ",
-				temp,
-				" degrees in ",
-				location
+				React.createElement(
+					'p',
+					{ className: 'text-center' },
+					'It is ',
+					temp,
+					' degrees in ',
+					location
+				)
 			);
 		}
 	});
@@ -26521,6 +26548,8 @@
 	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
 	var React = __webpack_require__(8);
+	var ReactDOM = __webpack_require__(165);
+	var ReactDOMServer = __webpack_require__(260);
 
 	var ErrorModal = React.createClass({
 		displayName: 'ErrorModal',
@@ -26538,16 +26567,11 @@
 		},
 
 		componentDidMount: function componentDidMount() {
-			var modal = new Foundation.Reveal($('#error-modal'));
-			modal.open();
-		},
-
-		render: function render() {
 			var _props = this.props;
 			var title = _props.title;
 			var message = _props.message;
 
-			return React.createElement(
+			var modalMarkUp = React.createElement(
 				'div',
 				{ id: 'error-modal', className: 'reveal tiny text-center', 'data-reveal': '' },
 				React.createElement(
@@ -26566,6 +26590,17 @@
 					'OK'
 				)
 			);
+
+			var $modal = $(ReactDOMServer.renderToString(modalMarkUp));
+			$(ReactDOM.findDOMNode(this)).html($modal);
+
+			var modal = new Foundation.Reveal($('#error-modal'));
+			modal.open();
+		},
+
+		render: function render() {
+
+			return React.createElement('div', null);
 		}
 	});
 
@@ -26679,11 +26714,6 @@
 						'Tokyo, JP'
 					)
 				)
-			),
-			React.createElement(
-				'p',
-				null,
-				'Welcome to Examples'
 			)
 		);
 	};
@@ -27056,8 +27086,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./app.css", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./app.css");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/sass-loader/index.js!./app.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -27075,9 +27105,18 @@
 
 
 	// module
-	exports.push([module.id, ".page-title {\n\tmargin-top: 2.5rem;\n\tmargin-bottom: 2.5rem;\n}\n\ninput[type=search] {\n\tbox-shadow: none;\n}", ""]);
+	exports.push([module.id, ".page-title {\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem; }\n\ninput[type=search] {\n  box-shadow: none; }\n", ""]);
 
 	// exports
+
+
+/***/ },
+/* 260 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(155);
 
 
 /***/ }
