@@ -32,13 +32,13 @@ var Nav = React.createClass({
 				</div>
 
 				<div className='top-bar-right'>
-					<form onSubmit={this.handleSubmit}>
+					<form action="http://google.com/search" target="_blank">
 						<ul className='menu'>
 								<li>
-									<input type='search' ref='search' placeholder='Search weather by city'/>
+									<input type='search' name='q' ref='search' placeholder='Search by Google'/>
 								</li>
 								<li>
-									<input type='submit' className='button' value='Get Weather'/>
+									<input type='submit' className='button' value='Google it'/>
 								</li>
 						</ul>
 					</form>	

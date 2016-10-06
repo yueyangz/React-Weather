@@ -25,9 +25,11 @@ var Weather = React.createClass({
 		OpenWeatherMap.getTemp(location).then(function(data){
 			var temperature = data.main.temp;
 			var location = data.name;
+			var description = data.weather[0].description;
 			that.setState({
 				location: location, 
 				temp: temperature,
+				description: description,
 				isLoading: false
 			});
 		}, function(error){
@@ -68,18 +70,19 @@ var Weather = React.createClass({
 	},
 
 	conditionalRendering: function(){
-		var {isLoading, location, temp} = this.state;
+		var {isLoading, location, temp, description} = this.state;
 		if (isLoading) {
 			return <h3>Fetching temperature...</h3>
 		} else if (location && temp) {
-			return <WeatherMessage location={location} temp={temp}/>
+			return <WeatherMessage location={location} temp={temp} description={description}/>
 		} 
 	},
 
 	render: function(){
 		return (
 			<div>		
-				<h1 className='text-center page-title'>Weather</h1>
+				<h1 className='text-center page-title'>Weather Inquiry</h1>
+				<h5 className='text-center'>Only English supported currently</h5>
 				<WeatherForm onNewData={this.handleNewData}/>
 				{this.conditionalRendering()}
 				{this.renderError()}

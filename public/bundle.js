@@ -24965,19 +24965,19 @@
 					{ className: 'top-bar-right' },
 					React.createElement(
 						'form',
-						{ onSubmit: this.handleSubmit },
+						{ action: 'http://google.com/search', target: '_blank' },
 						React.createElement(
 							'ul',
 							{ className: 'menu' },
 							React.createElement(
 								'li',
 								null,
-								React.createElement('input', { type: 'search', ref: 'search', placeholder: 'Search weather by city' })
+								React.createElement('input', { type: 'search', name: 'q', ref: 'search', placeholder: 'Search by Google' })
 							),
 							React.createElement(
 								'li',
 								null,
-								React.createElement('input', { type: 'submit', className: 'button', value: 'Get Weather' })
+								React.createElement('input', { type: 'submit', className: 'button', value: 'Google it' })
 							)
 						)
 					)
@@ -25022,9 +25022,11 @@
 			OpenWeatherMap.getTemp(location).then(function (data) {
 				var temperature = data.main.temp;
 				var location = data.name;
+				var description = data.weather[0].description;
 				that.setState({
 					location: location,
 					temp: temperature,
+					description: description,
 					isLoading: false
 				});
 			}, function (error) {
@@ -25066,6 +25068,7 @@
 			var isLoading = _state.isLoading;
 			var location = _state.location;
 			var temp = _state.temp;
+			var description = _state.description;
 
 			if (isLoading) {
 				return React.createElement(
@@ -25074,7 +25077,7 @@
 					'Fetching temperature...'
 				);
 			} else if (location && temp) {
-				return React.createElement(WeatherMessage, { location: location, temp: temp });
+				return React.createElement(WeatherMessage, { location: location, temp: temp, description: description });
 			}
 		},
 
@@ -25085,7 +25088,12 @@
 				React.createElement(
 					'h1',
 					{ className: 'text-center page-title' },
-					'Weather'
+					'Weather Inquiry'
+				),
+				React.createElement(
+					'h5',
+					{ className: 'text-center' },
+					'Only English supported currently'
 				),
 				React.createElement(WeatherForm, { onNewData: this.handleNewData }),
 				this.conditionalRendering(),
@@ -25117,6 +25125,7 @@
 			var _props = this.props;
 			var temp = _props.temp;
 			var location = _props.location;
+			var description = _props.description;
 
 			return React.createElement(
 				'div',
@@ -25127,7 +25136,9 @@
 					'It is ',
 					temp,
 					' degrees in ',
-					location
+					location,
+					', and there will be ',
+					description
 				)
 			);
 		}
