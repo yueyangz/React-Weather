@@ -12,14 +12,15 @@ module.exports = {
 		var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
 		return axios.get(requestUrl).then(function(res) {
 			var cityFromResponse = res.data.name.toLowerCase().trim().replace(" ", "");
-			var cityFromUser = decodeURI(encodedLocation.toLowerCase().trim()).replace(" ", "");
-			if (cityFromUser !== cityFromResponse && !cityFromResponse.includes(cityFromUser)) {
-				throw new Error(` Oops! This city cannot be found!`);
+			var cityFromUserWithSpace = decodeURI(encodedLocation.toLowerCase().trim());
+			var cityFromUserWithoutSpace = cityFromUserWithSpace.replace(" ", "");
+			if (cityFromUserWithoutSpace !== cityFromResponse && !cityFromResponse.includes(cityFromUserWithoutSpace)) {
+				throw new Error(`Oops! What is ${cityFromUserWithSpace}? Couldn't find it!`);
 			}
 			if (res.data.cod && res.data.message) {
 				throw new Error(res.data.message);			
 			} else {
-				return res.data.main.temp;
+				return res.data;
 			}
 		}, function(res) {
 			throw new Error(res.data.message);

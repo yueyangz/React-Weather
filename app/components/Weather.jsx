@@ -22,10 +22,12 @@ var Weather = React.createClass({
 			temp: undefined
 		});
 
-		OpenWeatherMap.getTemp(location).then(function(temp){
+		OpenWeatherMap.getTemp(location).then(function(data){
+			var temperature = data.main.temp;
+			var location = data.name;
 			that.setState({
 				location: location, 
-				temp: temp,
+				temp: temperature,
 				isLoading: false
 			});
 		}, function(error){
