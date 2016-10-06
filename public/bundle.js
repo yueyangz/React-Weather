@@ -25197,7 +25197,7 @@
 				var cityFromResponse = res.data.name.toLowerCase().trim().replace(" ", "");
 				var cityFromUser = decodeURI(encodedLocation.toLowerCase().trim()).replace(" ", "");
 				if (cityFromUser !== cityFromResponse) {
-					throw new Error('Can you make my life a little easier? I think you are a ' + cityFromUser + '!');
+					throw new Error(' Oops! This city cannot be found!');
 				}
 				if (res.data.cod && res.data.message) {
 					throw new Error(res.data.message);
