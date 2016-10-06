@@ -7,13 +7,9 @@ var About = React.createClass({
 		<div>
 			<h1 className='text-center page-title'>About</h1>
 			<ul className='row'>
-					<li>
-						The application utilizes data from OpenWeatherMap.org <a className='text-center' href='http://openweathermap.org/'>Open Weather MapAPI</a> 
-					</li>
-					
-					<li>
-						You can also view all the code in my GitHub repo <a className='text-center' href='https://github.com/yueyangz/ReactWeather'>GitHub</a> 			
-					</li>
+					<h4>My name is Yueyang. I am awesome.</h4> 		
+					<p>You can also view my GitHub <a className='text-center' href='https://github.com/yueyangz/ReactWeather'>GitHub</a> </p>			
+					<p>The Weather Gadget utilizes data from OpenWeatherMap.org <a className='text-center' href='http://openweathermap.org/'>Open Weather MapAPI</a></p>					
 			</ul>
 		</div>)
 	}

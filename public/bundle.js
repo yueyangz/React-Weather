@@ -107,15 +107,15 @@
 
 	var Main = __webpack_require__(223);
 	var Weather = __webpack_require__(225);
-	var About = __webpack_require__(252);
-	var Example = __webpack_require__(253);
+	var About = __webpack_require__(253);
+	var Example = __webpack_require__(254);
 
 	//Load foundation
 
-	__webpack_require__(254);
+	__webpack_require__(255);
 	$(document).foundation();
 
-	__webpack_require__(258);
+	__webpack_require__(259);
 
 	ReactDOM.render(
 	// <h1>Boilerplate app!</h1>,
@@ -24879,7 +24879,7 @@
 				{ className: 'row' },
 				React.createElement(
 					'div',
-					{ className: 'medium-6 large-4 small-centered columns' },
+					{ className: 'small-6 large-8 small-centered columns' },
 					props.children
 				)
 			)
@@ -24929,16 +24929,7 @@
 						React.createElement(
 							'li',
 							{ className: 'menu-text' },
-							'React Weather'
-						),
-						React.createElement(
-							'li',
-							null,
-							React.createElement(
-								IndexLink,
-								{ to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-								'Get Weather'
-							)
+							'Yueyang Zheng'
 						),
 						React.createElement(
 							'li',
@@ -24946,7 +24937,7 @@
 							React.createElement(
 								Link,
 								{ to: 'about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-								'About'
+								'About me'
 							)
 						),
 						React.createElement(
@@ -24955,7 +24946,16 @@
 							React.createElement(
 								Link,
 								{ to: 'example', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-								'Example'
+								'Blog'
+							)
+						),
+						React.createElement(
+							'li',
+							null,
+							React.createElement(
+								IndexLink,
+								{ to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+								'Weather Gadget'
 							)
 						)
 					)
@@ -26549,7 +26549,7 @@
 
 	var React = __webpack_require__(8);
 	var ReactDOM = __webpack_require__(165);
-	var ReactDOMServer = __webpack_require__(260);
+	var ReactDOMServer = __webpack_require__(252);
 
 	var ErrorModal = React.createClass({
 		displayName: 'ErrorModal',
@@ -26613,6 +26613,15 @@
 
 	'use strict';
 
+	module.exports = __webpack_require__(155);
+
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	var React = __webpack_require__(8);
 
 	var About = React.createClass({
@@ -26632,23 +26641,29 @@
 					'ul',
 					{ className: 'row' },
 					React.createElement(
-						'li',
+						'h4',
 						null,
-						'The application utilizes data from OpenWeatherMap.org ',
-						React.createElement(
-							'a',
-							{ className: 'text-center', href: 'http://openweathermap.org/' },
-							'Open Weather MapAPI'
-						)
+						'My name is Yueyang. I am awesome.'
 					),
 					React.createElement(
-						'li',
+						'p',
 						null,
-						'You can also view all the code in my GitHub repo ',
+						'You can also view my GitHub ',
 						React.createElement(
 							'a',
 							{ className: 'text-center', href: 'https://github.com/yueyangz/ReactWeather' },
 							'GitHub'
+						),
+						' '
+					),
+					React.createElement(
+						'p',
+						null,
+						'The Weather Gadget utilizes data from OpenWeatherMap.org ',
+						React.createElement(
+							'a',
+							{ className: 'text-center', href: 'http://openweathermap.org/' },
+							'Open Weather MapAPI'
 						)
 					)
 				)
@@ -26659,7 +26674,7 @@
 	module.exports = About;
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26686,34 +26701,7 @@
 			React.createElement(
 				'h1',
 				{ className: 'text-center page-title' },
-				'Examples'
-			),
-			React.createElement(
-				'p',
-				null,
-				'Here are a few example locations to try out'
-			),
-			React.createElement(
-				'ol',
-				null,
-				React.createElement(
-					'li',
-					null,
-					React.createElement(
-						Link,
-						{ to: '/?location=philadelphia' },
-						'Philadelphia, PA'
-					)
-				),
-				React.createElement(
-					'li',
-					null,
-					React.createElement(
-						Link,
-						{ to: '/?location=tokyo' },
-						'Tokyo, JP'
-					)
-				)
+				'Coming soon...'
 			)
 		);
 	};
@@ -26721,16 +26709,16 @@
 	module.exports = Example;
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(255);
+	var content = __webpack_require__(256);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -26747,10 +26735,10 @@
 	}
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(257)();
 	// imports
 
 
@@ -26761,7 +26749,7 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports) {
 
 	/*
@@ -26817,7 +26805,7 @@
 
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -27071,16 +27059,16 @@
 
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(259);
+	var content = __webpack_require__(260);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(257)(content, {});
+	var update = __webpack_require__(258)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -27097,10 +27085,10 @@
 	}
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(256)();
+	exports = module.exports = __webpack_require__(257)();
 	// imports
 
 
@@ -27108,15 +27096,6 @@
 	exports.push([module.id, ".page-title {\n  margin-top: 2.5rem;\n  margin-bottom: 2.5rem; }\n\ninput[type=search] {\n  box-shadow: none; }\n", ""]);
 
 	// exports
-
-
-/***/ },
-/* 260 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(155);
 
 
 /***/ }
