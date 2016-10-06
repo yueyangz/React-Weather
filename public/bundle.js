@@ -25196,7 +25196,7 @@
 			return axios.get(requestUrl).then(function (res) {
 				var cityFromResponse = res.data.name.toLowerCase().trim().replace(" ", "");
 				var cityFromUser = decodeURI(encodedLocation.toLowerCase().trim()).replace(" ", "");
-				if (cityFromUser !== cityFromResponse) {
+				if (cityFromUser !== cityFromResponse && !cityFromResponse.includes(cityFromUser)) {
 					throw new Error(' Oops! This city cannot be found!');
 				}
 				if (res.data.cod && res.data.message) {
