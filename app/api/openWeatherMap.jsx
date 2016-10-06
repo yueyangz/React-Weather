@@ -22,8 +22,9 @@ module.exports = {
 			} else {
 				return res.data;
 			}
-		}, function(res) {
-			throw new Error(res.data);
-			});
+		}).catch(function(error) {
+			console.log(error);
+			throw new Error(error.message);
+		});
 	}
 }
