@@ -25200,7 +25200,7 @@
 				var cityFromUserWithSpace = decodeURI(encodedLocation.toLowerCase().trim());
 				var cityFromUserWithoutSpace = cityFromUserWithSpace.replace(" ", "");
 				if (cityFromUserWithoutSpace !== cityFromResponse && !cityFromResponse.includes(cityFromUserWithoutSpace)) {
-					throw new Error('Oops! What is ' + cityFromUserWithSpace + '? Couldn\'t find it!');
+					throw new Error('Oops! What is ' + cityFromUserWithSpace + '?');
 				}
 				if (res.data.cod && res.data.message) {
 					throw new Error(res.data.message);
