@@ -33,7 +33,7 @@ var Weather = React.createClass({
 				isLoading: false
 			});
 		}, function(error){
-			var msg = error.message || `Oops! What is ${location}?`;
+			var msg = error.msg !== undefined ? error.msg : `Oops! What is ${location}?`;
 			that.setState({
 				isLoading: false,
 				errorMessage: msg
