@@ -33,9 +33,10 @@ var Weather = React.createClass({
 				isLoading: false
 			});
 		}, function(error){
+			var msg = error.message || `Oops! What is ${location}?`;
 			that.setState({
 				isLoading: false,
-				errorMessage: error.message
+				errorMessage: msg
 			});
 			// alert(error);
 		})	

@@ -23,7 +23,7 @@ module.exports = {
 				return res.data;
 			}
 		}, function(res) {
-			throw new Error(res.data.message);
+			throw new Error(res.data);
 			});
 	}
 }
