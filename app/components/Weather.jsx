@@ -33,10 +33,10 @@ var Weather = React.createClass({
 				isLoading: false
 			});
 		}, function(error){
-			// var msg = `Cannot get the weather data for ${location} from the server!`
+			var msg = `Cannot get weather data for ${location} from the server!`
 			that.setState({
 				isLoading: false,
-				errorMessage: error.message
+				errorMessage: msg
 			});
 		})	
 		
