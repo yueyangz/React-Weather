@@ -25030,11 +25030,11 @@
 					isLoading: false
 				});
 			}, function (error) {
+				var msg = 'Cannot get the weather data for ' + location + ' from the server!';
 				that.setState({
 					isLoading: false,
-					errorMessage: error.message
+					errorMessage: msg
 				});
-				// alert(error);
 			});
 		},
 
@@ -25213,13 +25213,14 @@
 				if (cityFromUserWithoutSpace !== cityFromResponse && !cityFromResponse.includes(cityFromUserWithoutSpace)) {
 					throw new Error('Oops! What is ' + cityFromUserWithSpace + '?');
 				}
-				if (res.data.cod && res.data.message) {
-					throw new Error(res.data.message);
+				if (res.cod && res.message) {
+					throw new Error(res.message);
 				} else {
 					return res.data;
 				}
-			}, function (res) {
-				throw new Error(res.data.message);
+			}).catch(function (error) {
+				console.log(error);
+				throw new Error(error);
 			});
 		}
 	};
