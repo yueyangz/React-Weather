@@ -18,6 +18,7 @@ module.exports = {
 				throw new Error(`Oops! What is ${cityFromUserWithSpace}?`);
 			}
 			if (res.cod && res.message) {
+				console.log("Line 21");
 				throw new Error(res.message);			
 			} else {
 				return res.data;

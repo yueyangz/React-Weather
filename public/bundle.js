@@ -25030,10 +25030,10 @@
 					isLoading: false
 				});
 			}, function (error) {
-				// var msg = `Cannot get the weather data for ${location} from the server!`
+				var msg = 'Cannot get weather data for ' + location + ' from the server!';
 				that.setState({
 					isLoading: false,
-					errorMessage: error.message
+					errorMessage: msg
 				});
 			});
 		},
@@ -25214,6 +25214,7 @@
 					throw new Error('Oops! What is ' + cityFromUserWithSpace + '?');
 				}
 				if (res.cod && res.message) {
+					console.log("Line 21");
 					throw new Error(res.message);
 				} else {
 					return res.data;
