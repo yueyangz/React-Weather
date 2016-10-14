@@ -24955,7 +24955,7 @@
 							React.createElement(
 								IndexLink,
 								{ to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-								'Weather Gadget'
+								'Random Stuff'
 							)
 						)
 					)
@@ -25214,13 +25214,12 @@
 					throw new Error('Oops! What is ' + cityFromUserWithSpace + '?');
 				}
 				if (res.cod && res.message) {
-					console.log("Line 21");
 					throw new Error(res.message);
 				} else {
 					return res.data;
 				}
 			}).catch(function (error) {
-				console.log(error);
+				// console.log(error);
 				throw new Error(error);
 			});
 		}
@@ -26663,29 +26662,23 @@
 					'ul',
 					{ className: 'row' },
 					React.createElement(
-						'h4',
-						null,
-						'My name is Yueyang. I am awesome.'
-					),
-					React.createElement(
 						'p',
 						null,
-						'You can also view my GitHub ',
+						'My name is Yueyang. I am a current MCIT student at the University of Pennsylvania. I started learning coding in 2015 Fall. You can also view my GitHub',
 						React.createElement(
 							'a',
 							{ className: 'text-center', href: 'https://github.com/yueyangz/ReactWeather' },
-							'GitHub'
-						),
-						' '
+							' GitHub'
+						)
 					),
 					React.createElement(
 						'p',
 						null,
-						'The Weather Gadget utilizes data from OpenWeatherMap.org ',
+						'The weather inquiry application utilizes data from OpenWeatherMap.org ',
 						React.createElement(
 							'a',
 							{ className: 'text-center', href: 'http://openweathermap.org/' },
-							'Open Weather MapAPI'
+							'Open Weather Map'
 						)
 					)
 				)

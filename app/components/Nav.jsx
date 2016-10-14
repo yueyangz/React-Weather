@@ -26,7 +26,7 @@ var Nav = React.createClass({
 							<Link to="example" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Blog</Link>
 						</li>						
 						<li>
-							<IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Weather Gadget</IndexLink>
+							<IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Random Stuff</IndexLink>
 						</li>	
 					</ul>
 				</div>
